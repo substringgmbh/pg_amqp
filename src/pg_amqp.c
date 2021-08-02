@@ -197,6 +197,7 @@ local_amqp_get_bs(broker_id) {
                            0, AMQP_SASL_METHOD_PLAIN,
                            user, pass);
       if(s_reply.reply_type != AMQP_RESPONSE_NORMAL) {
+        elog(WARNING, "amqp[%s] AMQP reply %s", host_copy, s_reply.reply_type);
         elog(WARNING, "amqp[%s] login failed on broker %d", host_copy, broker_id);
         goto busted;
       }
