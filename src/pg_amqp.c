@@ -238,6 +238,7 @@ static struct brokerstate *
       if (s_reply.reply_type != AMQP_RESPONSE_NORMAL)
       {
         elog(WARNING, "amqp[%s] AMQP reply %d", host_copy, s_reply.reply_type);
+        elog(WARNING, "amqp[%s] AMQP reply %s", host_copy, s_reply.reply.decoded);
         elog(WARNING, "amqp[%s] login failed on broker %d", host_copy, broker_id);
         goto busted;
       }
